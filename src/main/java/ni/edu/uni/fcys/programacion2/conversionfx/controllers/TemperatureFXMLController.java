@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import ni.edu.uni.fcys.programacion2.conversionfx.core.TemperatureConversion;
 
 /**
  * FXML Controller class
@@ -35,7 +36,7 @@ public class TemperatureFXMLController implements Initializable {
     
     //rbtn
     @FXML
-    public RadioButton rbtnCelcius;
+    public RadioButton rbtnCelsius;
     @FXML
     public RadioButton rbtnFah;
     
@@ -43,25 +44,31 @@ public class TemperatureFXMLController implements Initializable {
     @FXML
     public void btnComputeAction(){
         float c, f=0;
-        if(rbtnCelcius.isSelected()){
+        if(rbtnCelsius.isSelected()){
             c =Float.parseFloat(txtCelcius.getText());
-            f =  ((float)9/5)*c + 32;
+            f = TemperatureConversion.fomCelsiusToFharenheint(c);
             
         }
         else if(rbtnFah.isSelected()){
             c = Float.parseFloat(txtFah.getText());
-            f = (c-32)*((float)5/9);
+            f = TemperatureConversion.fromFharenheitToCelsius(c);
             
         }
-        else {
-//            JOptionPane.showMessageDialog(null,"Selecciona un radio button");
-//            return;
-        }
+        
         txtResult.setText(String.valueOf(f));
     }
     @FXML
     public void btnCleanAction(){
+        cleanTextField();
         
+    }
+    @FXML
+    public void rbtnFahAction(){
+        activateTextField();
+    }
+    @FXML
+    public void rbtnCelsiusAction(){
+        activateTextField();
     }
     /**
      * Initializes the controller class.
@@ -70,5 +77,23 @@ public class TemperatureFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+     
+    private void activateTextField(){
+        if (rbtnCelsius.isSelected()) {
+            txtCelcius.setEditable(true);
+            txtCelcius.requestFocus();
+            txtFah.setEditable(false);
+        }else if(rbtnFah.isSelected()){
+            txtFah.setEditable(true);
+            txtFah.requestFocus();
+            txtCelcius.setEditable(false);
+        }
+        cleanTextField();
+    }
     
+    private void cleanTextField(){
+        txtCelcius.setText("");
+        txtFah.setText("");
+        txtResult.setText("");
+    }
 }

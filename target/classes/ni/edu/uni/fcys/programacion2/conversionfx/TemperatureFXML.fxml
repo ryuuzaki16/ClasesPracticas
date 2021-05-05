@@ -13,19 +13,19 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="ni.edu.uni.fcys.programacion2.conversionfx.controllers.TemperatureFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uni.fcys.programacion2.conversionfx.controllers.TemperatureFXMLController">
    <children>
       <BorderPane layoutX="200.0" layoutY="100.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #9e9e9e;" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER">
                <children>
                   <GridPane>
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="304.0" minWidth="10.0" prefWidth="115.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="304.0" minWidth="10.0" prefWidth="157.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="458.0" minWidth="10.0" prefWidth="47.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="458.0" minWidth="10.0" prefWidth="341.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="458.0" minWidth="10.0" prefWidth="99.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -36,43 +36,58 @@
                         <Insets left="30.0" right="30.0" />
                      </VBox.margin>
                      <children>
-                        <Label text="Celcius" GridPane.halignment="CENTER" />
-                        <Label text="Fahrenheit" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                        <Label text="Result" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                        <TextField fx:id="txtCelcius" prefHeight="27.0" prefWidth="344.0" style="-fx-border-color: #707070;" GridPane.columnIndex="1">
+                        <Label text="Celcius" textFill="#0ae4e8" GridPane.halignment="CENTER">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font></Label>
+                        <Label text="Fahrenheit" textFill="#0ae4e8" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font></Label>
+                        <Label text="Result" textFill="#0ae4e8" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font></Label>
+                        <TextField fx:id="txtCelcius" editable="false" prefHeight="27.0" prefWidth="344.0" style="-fx-border-color: #707070;" GridPane.columnIndex="2">
                            <GridPane.margin>
                               <Insets left="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="txtFah" style="-fx-border-color: #707070;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField fx:id="txtFah" editable="false" style="-fx-border-color: #707070;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="txtResult" style="-fx-border-color: #707070;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <TextField fx:id="txtResult" editable="false" style="-fx-border-color: #707070;" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <RadioButton fx:id="rbtnCelcius" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                        <RadioButton fx:id="rbtnCelsius" mnemonicParsing="false" onAction="#rbtnCelsiusAction" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                            <toggleGroup>
                               <ToggleGroup fx:id="one" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="rbtnFah" mnemonicParsing="false" toggleGroup="$one" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <RadioButton fx:id="rbtnFah" mnemonicParsing="false" onAction="#rbtnFahAction" toggleGroup="$one" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                   <FlowPane alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="600.0">
                      <children>
-                        <Button fx:id="btnCompute" alignment="CENTER" mnemonicParsing="false" onAction="#btnComputeAction" prefWidth="100.0" text="Compute">
+                        <Button fx:id="btnCompute" alignment="CENTER" mnemonicParsing="false" onAction="#btnComputeAction" prefWidth="100.0" style="-fx-background-color: #0ae4e8;" text="Compute">
                            <FlowPane.margin>
                               <Insets right="5.0" />
                            </FlowPane.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                         </Button>
-                        <Button fx:id="btnClean" alignment="CENTER" mnemonicParsing="false" onAction="#btnComputeAction" prefWidth="100.0" text="Clean">
+                        <Button fx:id="btnClean" alignment="CENTER" mnemonicParsing="false" onAction="#btnCleanAction" prefWidth="100.0" style="-fx-background-color: #0ae4e8;" text="Clean">
                            <FlowPane.margin>
                               <Insets right="30.0" />
                            </FlowPane.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                         </Button>
                      </children>
                   </FlowPane>

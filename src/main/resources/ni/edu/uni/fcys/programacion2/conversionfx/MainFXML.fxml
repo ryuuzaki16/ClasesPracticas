@@ -14,14 +14,14 @@
    <children>
       <BorderPane layoutX="200.0" layoutY="100.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-border-color: #5df2d6; -fx-background-color: #00bfa5;" BorderPane.alignment="CENTER">
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" style="-fx-border-color: #5df2d6; -fx-background-color: #000000;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btnTemperature" mnemonicParsing="false" onAction="#btnTemperatureAction" prefHeight="100.0" prefWidth="90.0" style="-fx-background-color: #00bfa5; -fx-border-color: #5df2d6;" text="Temperature" textFill="#280202">
+                  <Button fx:id="btnTemperature" mnemonicParsing="false" onAction="#btnTemperatureAction" prefHeight="100.0" prefWidth="90.0" style="-fx-background-color: #0ae4e8; -fx-border-color: #5df2d6;" text="Temperature" textFill="#280202">
                      <VBox.margin>
                         <Insets top="5.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="btnCurrency" mnemonicParsing="false" onAction="#btnCurrencyAction" prefHeight="100.0" prefWidth="90.0" style="-fx-background-color: #00bfa5; -fx-border-color: #5df2d6;" text="Currency" />
+                  <Button fx:id="btnCurrency" mnemonicParsing="false" onAction="#btnCurrencyAction" prefHeight="100.0" prefWidth="90.0" style="-fx-background-color: #0ae4e8; -fx-border-color: #5df2d6;" text="Currency" />
                </children>
             </VBox>
          </left>
